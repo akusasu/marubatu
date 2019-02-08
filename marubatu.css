@@ -1,0 +1,78 @@
+body{
+    background-color: rgb(242, 242, 146);
+}
+.table{
+    background-color: rgb(87, 154, 156);
+    width: 400px;
+    height: 400px;
+    margin:  0 auto;
+    border: black solid 1px;
+    border-collapse: collapse;
+    padding-top: 50px;
+    margin-top: 50px;
+    table-layout: fixed;
+}
+
+td {
+    background-color: white;
+    border: black solid 1px;
+    border-radius: 15%;
+    text-align: center;
+    width: 133px;
+    height: 133px;
+    font-size: 50px;
+    font-weight: 900;
+}
+input{
+    padding-left: 40px;
+    margin-left: 40px;
+    padding-top: 10px;
+    margin-top: 100px;
+}
+#team0{
+    width: 240px;
+    height: 55px;
+    font-size: 35px;
+    text-shadow: 2px 2px 2px skyblue;
+}
+#team1{
+    width: 240px;
+    height: 55px;
+    font-size: 35px;
+    text-shadow: 2px 2px 2px skyblue;
+}
+input, #decision{
+    width: 100px;
+    height: 200px;
+    font-size: 35px;
+    text-shadow: 2px 2px 2px skyblue;
+}
+
+p{
+    text-align: center;
+    font-size: 60px;
+    text-shadow: 5px 5px 4px red;
+}
+
+h1{
+    text-align: center;
+}
+
+h3{
+    text-align: center;
+    color: gray;
+    font-size: 30px;
+    text-shadow: 3px 4px 5px #66FFCC;
+}
+.blue{
+    text-align: center;
+    font-size: 20px;
+    color: skyblue;
+    cursor: pointer;
+}
+
+
+
+
+
+
