@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>まるばつゲーム</title>
+</head>
+<body>
+<head>
+<link rel="stylesheet" href="marubatu.css">
+</head>
+
+<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+<!-- <input id="team0" type="text" value=""placeholder="チーム名">
+<input id="team1" type="text" value=""placeholder="チーム名"> -->
+<h1>友達と対戦٩( •̀ω•́)و</h1>
+<h3>Oの番</h3>
+<p></p>
+<h2 class="blue"></h2>
+<table class="table">
+<tr class="frame">
+<td id="0" class="marubatu topsideline"></td>
+<td id="1" class="marubatu topsideline"></td>
+<td id="2" class="marubatu topsideline"></td>
+</tr>
+<tr class="frame">
+<td id="3" class="marubatu"></td>
+<td id="4" class="marubatu"></td>
+<td id="5" class="marubatu"></td>
+</tr>
+<tr class="frame">
+<td id="6" class="marubatu"></td>
+<td id="7" class="marubatu"></td>
+<td id="8" class="marubatu"></td>
+</tr>
+</table>
+<canvas width="300" height="300"></canvas>
+
+<script>
+    var symbol = "O";
+    var winnerOrloser = "lose";
+    var h = 0;
+    var fight  = [null, null, null, null, null, null, null, null, null];
+    var id = null;
+    var cellsClicked = [false, false, false, false, false, false, false, false, false];
+    var num = null;
+    var counter = 0;
+
+    $('.marubatu').on("click", function () {
+        id = "#" + $(this).attr('id');
+        num = Number($(this).attr('id'));
+        if (cellsClicked[num] == false) {
+            cellsClicked[num] = true;
+            counter += 1;
+            console.log(counter);
+            console.log("winnerOrloser=", winnerOrloser);
+            console.log(cellsClicked[num]);
+                if (symbol == "O") {
+                $("h3").text("Xの番");
+                $(id).text(symbol);
+                fight[num] = symbol;
+                console.log(fight)
+                symbol = "X";
+            }
+            else if (symbol == "X") {
+                $("h3").text("Oの番");
+                $(id).text(symbol);
+                fight[num] = symbol;
+                console.log(fight)
+                symbol = "O"
+            } 
+        }
+
+        // 横
+        if (fight[0] == "O" && fight[1] == "O" && fight[2] == "O") {
+            $("p").text("Oの勝ち(⁎˃ᴗ˂⁎)");
+            $("p").css("color", "pink")
+            winnerOrloser = "win";
+            console.log(winnerOrloser);
+        } else if (fight[0] == "X" && fight[1] == "X" && fight[2] == "X") {
+            $("p").text("Xの勝ち(⁎˃ᴗ˂⁎)");
+            $("p").css("color", "pink")
+            winnerOrloser = "win";
+        }
+        if (fight[3] == "O" && fight[4] == "O" && fight[5] == "O") {
+                $("p").text("Oの勝ち(⁎˃ᴗ˂⁎)");
+                $("p").css("color", "pink")
+                winnerOrloser = "win";
+            } else if (fight[3] == "X" && fight[4] == "X" && fight[5] == "X") {
+                $("p").text("Xの勝ち(⁎˃ᴗ˂⁎)");
+                $("p").css("color", "pink")
+                winnerOrloser = "win";
+            }
+        if (fight[6] == "O" && fight[7] == "O" && fight[8] == "O") {
+                $("p").text("Oの勝ち(⁎˃ᴗ˂⁎)");
+                $("p").css("color", "pink")
+                winnerOrloser = "win";
+            } else if (fight[6] == "X" && fight[7] == "X" && fight[8] == "X") {
+                $("p").text("Xの勝ち(⁎˃ᴗ˂⁎)");
+                $("p").css("color", "pink")
+                winnerOrloser = "win";
+            }
+
+        // 縦
+        if (fight[0] == "O" && fight[3] == "O" && fight[6] == "O") {
+                $("p").text("Oの勝ち(⁎˃ᴗ˂⁎)");
+                $("p").css("color", "pink")
+                winnerOrloser = "win";
+            } else if (fight[0] == "X" && fight[3] == "X" && fight[6] == "X") {
+                $("p").text("Xの勝ち(⁎˃ᴗ˂⁎)");
+                $("p").css("color", "pink")
+                winnerOrloser = "win";
+            }
+        if (fight[1] == "O" && fight[4] == "O" && fight[7] == "O") {
+                $("p").text("Oの勝ち(⁎˃ᴗ˂⁎)");
+                $("p").css("color", "pink")
+                winnerOrloser = "win";
+            } else if (fight[1] == "X" && fight[4] == "X" && fight[7] == "X") {
+                $("p").text("Xの勝ち(⁎˃ᴗ˂⁎)");
+                $("p").css("color", "pink")
+                winnerOrloser = "win";
+            }
+        if (fight[2] == "O" && fight[5] == "O" && fight[8] == "O") {
+                $("p").text("Oの勝ち(⁎˃ᴗ˂⁎)");
+                $("p").css("color", "pink")
+                winnerOrloser = "win";
+            } else if (fight[2] == "X" && fight[5] == "X" && fight[8] == "X") {
+                $("p").text("Xの勝ち(⁎˃ᴗ˂⁎)");
+                $("p").css("color", "pink")
+                winnerOrloser = "win";
+            }
+
+        // 斜め
+        if (fight[2] == "O" && fight[4] == "O" && fight[6] == "O") {
+                $("p").text("Oの勝ち(⁎˃ᴗ˂⁎)");
+                $("p").css("color", "pink")
+                winnerOrloser = "win";
+            } else if (fight[2] == "X" && fight[4] == "X" && fight[6] == "X") {
+                $("p").text("Xの勝ち(⁎˃ᴗ˂⁎)");
+                $("p").css("color", "pink")
+                winnerOrloser = "win";
+            }
+
+        // 斜め
+        if (fight[0] == "O" && fight[4] == "O" && fight[8] == "O") {
+                $("p").text("Oの勝ち(⁎˃ᴗ˂⁎)");
+                $("p").css("color", "pink")
+                winnerOrloser = "win";
+            } else if (fight[0] == "X" && fight[4] == "X" && fight[8] == "X") {
+                $("p").text("Xの勝ち(⁎˃ᴗ˂⁎)");
+                $("p").css("color", "pink")
+                winnerOrloser = "win";
+            }
+
+        if (winnerOrloser == "lose" && counter == 9) {
+            $("p").css("color", "black");
+            $("p").text("惜しい...引き分け( ¨̮ )");
+            $("h3").text("");
+            $("h2").text("ゲームを再開");
+        }
+
+        if (winnerOrloser == "win") {
+            $("h3").text("");
+            cellsClicked = [true, true, true, true, true, true, true, true, true];
+            $("h2").text("ゲームを再開");
+        }
+        
+    $('.blue').on("click", function () {
+        symbol = "O";
+        counter = 0;
+        num = null;
+        winnerOrloser = "lose"
+        fight  = [null, null, null, null, null, null, null, null, null];
+        cellsClicked = [false, false, false, false, false, false, false, false, false];
+        $("#0").text(null);
+        $("#1").text(null);
+        $("#2").text(null);
+        $("#3").text(null);
+        $("#4").text(null);
+        $("#5").text(null);
+        $("#6").text(null);
+        $("#7").text(null);
+        $("#8").text(null);
+
+        $("h3").text("Oの番");
+
+        $('h2').text("");
+        $("p").text("");
+    });
+
+    });
+
+
+
+</script>
+</body>
+</html>
+        
+         
+
